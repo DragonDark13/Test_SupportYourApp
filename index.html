@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test_SupportYourApp</title>
+    <link rel="stylesheet" href="style/main_style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+<main class="mainBlock">
+    <div class="bg_block  bg_block1"></div>
+    <div class="bg_block  bg_block2"></div>
+    <div class="bg_block  bg_block3"></div>
+    <div class="bg_block  bg_block4"></div>
+
+    <section class="formContainer flipForFormBlock">
+        <div class="formLogo fadeInBckForLogo">
+            <div class="colorBlock orange fadeInBckForLogoElement1"></div>
+            <div class="colorBlock pink fadeInBckForLogoElement2"></div>
+            <div class="colorBlock blue fadeInBckForLogoElement3"></div>
+            <div class="colorBlock green fadeInBckForLogoElement4"></div>
+        </div>
+        <h1>QCRM</h1>
+        <h2>by SupportYourApp</h2>
+        <form>
+            <label for="login">
+                <input minlength="6" maxlength="18" required class="formInput" type="text" name="login" id="login"
+                       placeholder="Login">
+                <span class="borderFocusElem"></span>
+                <span class="inputCheckLine"></span>
+            </label>
+            <label for="password">
+                <input pattern="[A-Za-z0-9]{3}"
+                       minlength="8" maxlength="14" required class="formInput" type="password" name="password"
+                       id="password"
+                       placeholder="Password">
+                <span class="borderFocusElem"></span>
+                <span class="inputCheckLine"></span>
+            </label>
+
+            <label class="checkboxContainer" for="checkboxRemember">
+                <input checked type="checkbox" name="checkboxRemember" id="checkboxRemember">
+                <span class="checkmark"></span>
+                Remember me on this computer
+            </label>
+            <button class="formSubmitButton" type="submit">Sign In to QCRM</button>
+        </form>
+
+    </section>
+</main>
+
+</body>
+</html>

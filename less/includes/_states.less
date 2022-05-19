@@ -1,0 +1,24 @@
+
+.formContainer .formInput:valid,
+.formContainer .formInput:invalid:focus
+{
+
+  & ~ .inputCheckLine {
+    width: 100%;
+    right: 0;
+  }
+}
+
+.formContainer .formInput:valid {
+
+  & ~ .inputCheckLine {
+    background-color: green;
+  }
+}
+
+.formContainer .formInput:invalid:focus {
+
+  & ~ .inputCheckLine {
+    background-color: red;
+  }
+}

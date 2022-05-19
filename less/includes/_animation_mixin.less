@@ -1,0 +1,139 @@
+.keyframes(@name,@rules) {
+
+
+  @-webkit-keyframes @name {
+    @rules();
+  };
+
+  @-moz-keyframes @name {
+    @rules();
+  };
+
+
+  @-ms-keyframes @name {
+    @rules();
+  };
+
+  @-o-keyframes @name {
+    @rules();
+  };
+
+  @keyframes @name {
+    @rules();
+  };
+
+}
+
+
+.animation_mix2(@arguments) {
+  -webkit-animation: @arguments;
+  -moz-animation: @arguments;
+  animation: @arguments;
+  -o-animation: @arguments;
+}
+
+
+.keyframes(flip_in_hor_top, {
+  0% {
+    transform: rotateX(-60deg);
+    .opacity(0);
+  }
+  100% {
+    transform: rotateX(0);
+    .opacity(1);
+  }
+});
+
+.keyframes(fadein, {
+  0% {
+    .opacity(0);
+  }
+  100% {
+    .opacity(1);
+  }
+});
+
+.keyframes(fadeOut, {
+  0% {
+    .opacity(1);
+  }
+  100% {
+    .opacity(0);
+  }
+});
+
+.keyframes(fade_in_bck, {
+  0% {
+    transform: translate3d(15px, 1px, 193px) rotateX(40deg);
+    .opacity(0);
+    background-color: fade(#fff, 100%);
+  }
+  20% {
+    .opacity(1);
+    background-color: fade(#fff, 100%);
+  }
+
+  60% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+  }
+
+  80% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+    background-color: fade(#fff, 100%);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+    background-color: fade(#fff, 80%);
+  }
+});
+
+.keyframes(fadeInBckForLogoElements, {
+  0% {
+    transform: translate3d(15px, 1px, 600px) rotateX(40deg);
+    .opacity(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+    .opacity(1);
+  }
+});
+
+
+.flipForFormBlock {
+  .media_max(767px, {
+    .animation_mix2(flip_in_hor_top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both)
+  });
+}
+
+.fadeIn {
+  .animation_mix2(2270.2ms cubic-bezier(0.4, 0, 1, 1) 0ms 1 normal both running fadein);
+}
+
+.fadeOut {
+  .animation_mix2(2270.2ms cubic-bezier(0.4, 0, 1, 1) 0ms 1 normal both running fadeOut);
+}
+
+.fadeInBckForLogo {
+  .media_max(767px, {
+    .animation_mix2(1748.35ms cubic-bezier(0.39, 0.575, 0.565, 1) 700ms 1 normal both running fade_in_bck);
+  });
+}
+
+@animation_name: fadeInBckForLogoElement;
+@elementCount: 4;
+
+.generate_animation_for_logo_element(@i: 1) when (@i =< @elementCount) {
+  .@{animation_name}@{i} {
+    animation: ~"fadeInBckForLogoElements 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1.@{i}s both";
+  }
+
+  .generate_animation_for_logo_element(@i + 1);
+}
+
+.media_max(767px, {
+  .generate_animation_for_logo_element();
+});
+
+
+

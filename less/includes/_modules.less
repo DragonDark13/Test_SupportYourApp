@@ -1,0 +1,40 @@
+
+.formLogo .colorBlock {
+  @elem_width:4em;
+  @vertical_distance:2.142857142857143em;
+  .square(@elem_width);
+  border-radius: 20%;
+  position: absolute;
+  perspective-origin: top;
+
+
+  .mix_background_block_opacity(@color) {
+    background: fade(@color, 70%);
+  }
+
+  &.orange {
+    .mix_background_block_opacity(orange);
+    top: @vertical_distance;
+    left: @elem_width;
+  }
+
+  &.pink {
+    .mix_background_block_opacity(#C71585);
+    bottom: @vertical_distance + @elem_width;
+    right: @elem_width;
+  }
+
+  &.blue {
+    .mix_background_block_opacity(blue);
+    top: @vertical_distance + @elem_width;
+    left: @elem_width;
+  }
+
+  &.green {
+    .mix_background_block_opacity(limegreen);
+    bottom: @vertical_distance;
+    right: @elem_width;
+  }
+
+
+}

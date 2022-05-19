@@ -1,0 +1,75 @@
+.media_max(@maxWidth; @rules) {
+  @media only screen and (min-width: @maxWidth) {
+    @rules();
+  }
+}
+
+.transform(@transform) {
+  -o-transform+_: @transform;
+  -ms-transform+_: @transform;
+  -moz-transform+_: @transform;
+  -webkit-transform+_: @transform;
+  transform+_: @transform;
+}
+
+.box-sizing(@box-model) {
+  -o-box-sizing: @box-model;
+  -webkit-box-sizing: @box-model; // Safari <= 5
+  -moz-box-sizing: @box-model; // Firefox <= 19
+  box-sizing: @box-model;
+}
+
+.opacity (@alpha) {
+  @ms-alpha: @alpha*100;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
+  -moz-opacity: @alpha;
+  -khtml-opacity: @alpha;
+  opacity: @alpha;
+}
+
+.transition(@transition:0.3s) {
+  -ms-transition+: @transition;
+  -webkit-transition+: @transition;
+  -moz-transition+: @transition;
+  transition+: @transition;
+}
+
+.pos_full_coordinate() {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.pos_absolute_center() {
+  margin: auto;
+  .pos_full_coordinate;
+}
+
+.pos_absolute_full_screen() {
+  position: absolute;
+  .pos_full_coordinate;
+  .square(100%);
+}
+
+.square(@width) {
+  height: @width;
+  width: @width;
+}
+
+.placeholder(@rules) {
+
+  &::-webkit-input-placeholder {
+    @rules();
+  }
+  &:-moz-placeholder {
+    @rules();
+  }
+  &::-moz-placeholder {
+    @rules();
+  }
+  &:-ms-input-placeholder {
+    @rules();
+  }
+}
